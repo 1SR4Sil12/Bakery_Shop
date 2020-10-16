@@ -1,0 +1,18 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<h1>Panadería Eva María</h1>
+
+  <p>Bienvenido a la página de la <em>Panadería Eva María</em>.</p>
+
+<h2>Contenido dinámico</h2>
+
+  <p>Podemos encontrar lo siguiente:</p>
+  <ul>
+    <li><strong>Articulos:</strong> {{ num_articulos }}</li>
+    <li><strong>Reservas:</strong> {{ num_reservas }}</li>
+    <li><strong>Reservas disponibles:</strong> {{ num_reservas_disponibles }}</li>
+    <li><strong>Clientes:</strong> {{ num_clientes }}</li>
+  </ul>
+
+{% endblock %}
