@@ -1,0 +1,22 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Id: {{ reserva.id }}</h1>
+
+  <p><strong>Cliente:</strong> <a href="">{{ cliente.nombre }}</a></p> <!-- author detail link not yet defined -->
+  <p><strong>Articulo:</strong> {{ articulo.nombre }}</p>
+  <p><strong>Cantidad:</strong> {{ reserva.cantidad }}</p> 
+  <p><strong>Fecha:</strong> {{ reserva.fecha_reserva }}</p>  
+
+  <div style="margin-left:20px;margin-top:20px">
+    <h4>Reservas</h4>
+
+    {% for reserva in articulo.reserva_set.all %}
+    <hr>
+    <p class="{% if reserva.estado == 'e' %}text-success{% elif reserva.estado == 'p' %}text-danger{% else %}text-warning{% endif %}">{{ reserva.get_estado_display }}</p>
+    {% if reserva.estado != 'e' && reserva.estado != 'p' %}<p><strong>La reserva se ha cancelado o no está disponible.</strong></p>{% endif %}
+    <p><strong>Categoría:</strong> {{categoria.tipo}}</p>
+    <!-- <p class="text-muted"><strong>Id:</strong> {{copy.id}}</p> -->
+    {% endfor %}
+  </div>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>Lista de Artículos</h1>
+
+    {% if articulos_list %}
+    <ul>
+
+      {% for articulo in articulos_list %}
+      <li>
+        <a href="{{ articulo.get_absolute_url }}">{{ articulo.nombre }}</a> <!-- ({{ articulo.author }}) -->
+      </li>
+      {% endfor %}
+
+    </ul>
+    {% else %}
+      <p>No tenemos artículos en la panadería.</p>
+    {% endif %}       
+{% endblock %}

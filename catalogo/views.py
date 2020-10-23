@@ -15,3 +15,13 @@ def index(request):
         'index.html',
         context={'num_articulos':num_articulos,'num_reservas':num_reservas,'num_reservas_disponibles':num_reservas_disponibles,'num_clientes':num_clientes},
     )
+
+from django.views import generic
+
+class ListaArticulosView(generic.ListView):
+	model = Articulo
+	template = "templates/catalogo/articulo_list.html"
+	context_object_name = "articulos_list"
+
+class ReservasView(generic.DetailView):
+	model = Reserva

@@ -17,7 +17,7 @@ class Articulo(models.Model):
 		return self.nombre
 
 	def get_absolute_url(self):
-		return reverse('articulo-detail', args=[str(self.id)])
+		return self.nombre
 
 class Cliente(models.Model):
 	nombre = models.CharField(max_length=30, help_text="Ingresa tu nombre.")
