@@ -27,10 +27,8 @@ class Cliente(models.Model):
 	def __str__(self):
 		return '%s %s, %s' % (self.nombre, self.apellidos, self.telefono)
 
-import uuid
-
 class Reserva(models.Model):
-	id = models.UUIDField(primary_key=True, default=uuid.uuid4, help_text="ID único para esta reserva.")
+	# id = models.UUIDField(primary_key=True, default=uuid.uuid4, help_text="ID único para esta reserva.")
 	fecha_reserva = models.DateField(null=True, blank=True)
 	cantidad = models.IntegerField(default=0, help_text="Ingresa la cantidad que quieres.")
 	articulo = models.ForeignKey(Articulo, on_delete=models.SET_NULL, null=True)
@@ -49,4 +47,4 @@ class Reserva(models.Model):
 		ordering = ["fecha_reserva"]
 
 	def __str__(self):
-		return '%s (%s, %s %s, %s)' % (self.id, self.articulo.nombre, self.cliente.nombre, self.cliente.apellidos, self.fecha_reserva)
+		return '%s (%s %s, %s)' % (self.fecha_reserva, self.cliente.nombre, self.cliente.apellidos, self.articulo.nombre)

@@ -1,0 +1,19 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>Lista de Reservas</h1>
+
+    {% if reserva_list %}
+    <ul>
+
+      {% for reserva in reserva_list %}
+      <li>
+        <a href="{{ reserva.get_absolute_url }}">{{ reserva.fecha_reserva }}</a>
+      </li>
+      {% endfor %}
+
+    </ul>
+    {% else %}
+      <p>No tenemos reservas disponibles en la panadería.</p>
+    {% endif %}       
+{% endblock %}

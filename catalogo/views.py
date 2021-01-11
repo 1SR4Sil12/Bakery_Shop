@@ -23,5 +23,11 @@ class ListaArticulosView(generic.ListView):
 	template = "templates/catalogo/articulo_list.html"
 	context_object_name = "articulos_list"
 
-class ReservasView(generic.DetailView):
-	model = Reserva
+class ListaClientesView(generic.ListView):
+	model = Cliente
+	template = "templates/catalogo/cliente_list.html"
+    #context_object_name = "clientes_list"
+
+class ListaReservasView(generic.ListView):
+    model = Reserva
+    template = "templates/catalogo/reserva_list.html"
